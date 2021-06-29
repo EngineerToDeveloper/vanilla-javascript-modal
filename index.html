@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .modal-content {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: .3rem;
+            outline: 0;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+        }
+        .modal-header {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: 1rem 1rem;
+            border-bottom: 1px solid #dee2e6;
+            border-top-left-radius: calc(.3rem - 1px);
+            border-top-right-radius: calc(.3rem - 1px);
+        }
+        .modal-dialog {
+            width: 80%;
+            margin: auto;
+        }
+        .modal-title {
+            margin: 0;
+            line-height: 1.5;
+            color: black;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .modal-body {
+            padding: 1rem;
+        }
+        .modal-body h1 {
+            margin-top: 0;
+        }
+        .modal-header button {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .show-modal.modal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .modal-dialog {
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: 300ms opacity ease-out,
+                        300ms transform ease-out;
+        }
+        .modal.animate-modal .modal-dialog {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <title>Modal</title>
+</head>
+<body>
+    <button type="button" data-toggle="modal">Open Modal</button>
+    <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal Header</h5>
+                    <button type="button" data-close aria-label="Close">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>My Modal</h1>
+                    <button type="button" class="btn" data-close>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
